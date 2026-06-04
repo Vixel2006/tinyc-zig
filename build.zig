@@ -46,4 +46,17 @@ pub fn build(b: *std.Build) void {
     });
     const run_lexer_test = b.addRunArtifact(lexer_test);
     test_step.dependOn(&run_lexer_test.step);
+
+    const parser_test = b.addTest(.{
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("tests/parser_test.zig"),
+            .target = target,
+            .optimize = optimize,
+            .imports = &.{
+                .{ .name = "tinyc", .module = tinyc_mod },
+            },
+        }),
+    });
+    const run_parser_test = b.addRunArtifact(parser_test);
+    test_step.dependOn(&run_parser_test.step);
 }
