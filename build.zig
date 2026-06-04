@@ -42,7 +42,7 @@ pub fn build(b: *std.Build) void {
     });
 
     const lexer_mod = b.createModule(.{
-        .root_source_file = b.path("lexer/lexer.zig"),
+        .root_source_file = b.path("src/lexer/lexer.zig"),
         .target = target,
         .optimize = optimize,
     });

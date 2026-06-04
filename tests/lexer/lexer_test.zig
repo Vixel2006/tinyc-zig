@@ -51,12 +51,14 @@ test "whitespace-only input" {
 
 test "keywords" {
     const inputs = [_]TokenKind{
-        .If, .Else, .While, .Int, .Float,
-        .Bool, .Char, .Return, .Void, .True, .False,
+        .If,    .Else, .While,  .Int,  .Float,
+        .Bool,  .Char, .Return, .Void, .True,
+        .False,
     };
     const names = [_][]const u8{
-        "if", "else", "while", "int", "float",
-        "bool", "char", "return", "void", "true", "false",
+        "if",    "else", "while",  "int",  "float",
+        "bool",  "char", "return", "void", "true",
+        "false",
     };
     for (inputs, names) |kind, name| {
         var it = tokenize(name);
