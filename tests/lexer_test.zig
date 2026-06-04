@@ -1,8 +1,8 @@
 const std = @import("std");
 const testing = std.testing;
-const Lexer = @import("lexer").Lexer;
-const TokenKind = @import("lexer").TokenKind;
-const Token = @import("lexer").Token;
+const Lexer = @import("tinyc").Lexer;
+const TokenKind = @import("tinyc").TokenKind;
+const Token = @import("tinyc").Token;
 
 fn tokenize(source: []const u8) TokenIterator {
     return .{ .lexer = Lexer.init(source) };

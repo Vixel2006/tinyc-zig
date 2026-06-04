@@ -1,6 +1,6 @@
 const std = @import("std");
-const Lexer = @import("lexer").Lexer;
-const TokenKind = @import("lexer").TokenKind;
+const Lexer = @import("tinyc").Lexer;
+const TokenKind = @import("tinyc").TokenKind;
 
 pub fn main() !void {
     const source =
