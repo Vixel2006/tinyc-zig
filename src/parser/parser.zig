@@ -15,18 +15,18 @@ pub const Parser = struct {
         };
     }
 
-    fn current(self: *const Parser) Token {
+    pub fn current(self: *const Parser) Token {
         if (self.pos >= self.tokens.len) return .{ .kind = .Eof, .lexeme = "", .line = 0, .column = 0 };
         return self.tokens[self.pos];
     }
 
-    fn advance(self: *Parser) Token {
+    pub fn advance(self: *Parser) Token {
         const tok = self.current();
         self.pos += 1;
         return tok;
     }
 
-    fn expect(self: *Parser, kind: TokenKind) !Token {
+    pub fn expect(self: *Parser, kind: TokenKind) anyerror!Token {
         const tok = self.current();
         if (tok.kind != kind) return error.UnexpectedToken;
         return self.advance();

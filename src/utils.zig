@@ -7,5 +7,5 @@ pub const errors = error{
 };
 
 pub fn print_syntax_err(curr: Token, msg: []const u8) void {
-    std.debug.print("Syntax error at line {}, col {}: {}", .{ curr.line, curr.column, msg });
+    std.debug.print("Syntax error at line {}, col {}: {s}", .{ curr.line, curr.column, msg });
 }
